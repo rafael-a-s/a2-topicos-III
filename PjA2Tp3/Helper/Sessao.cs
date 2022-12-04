@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PjA2Tp3.Models;
+using System.Drawing;
 
 namespace PjA2Tp3.Helper
 {
@@ -7,29 +8,34 @@ namespace PjA2Tp3.Helper
     {
         private readonly IHttpContextAccessor _httpContext;
 
-        public Sessao(IHttpContextAccessor _httpContext)
+        public Sessao(IHttpContextAccessor httpContext)
         {
-            _httpContext = _httpContext;   
+            _httpContext = httpContext;   
         }
 
-        public Usuario BuscarSessaoDoUsuario()
+        public Usuario BuscarSessaoDoUsuario(string nomeSessao)
         {
-            string sessaoUsu = _httpContext.HttpContext.Session.GetString("usuLogado");
+            string sessaoUsu = _httpContext.HttpContext.Session.GetString(nomeSessao);
 
             if (string.IsNullOrEmpty(sessaoUsu)) return null;
 
             return JsonConvert.DeserializeObject<Usuario>(sessaoUsu); 
         }
 
-        public void CriarSessaoDoUsuario(Usuario usuario)
+        public void CriarSessaoDoUsuario(Usuario usuario, string nomeSessao)
         {
             string valor = JsonConvert.SerializeObject(usuario);    
-            _httpContext.HttpContext.Session.SetString("usuLogado",valor);
+            _httpContext.HttpContext.Session.SetString(nomeSessao,valor);
         }
 
-        public void RemoverSessaoDoUsuario()
+        public void CriarSessaoNomeUsuario(string nome, string nomeSessao)
         {
-            _httpContext.HttpContext.Session.Remove("usuLogado");
+            _httpContext.HttpContext.Session.SetString(nomeSessao, nome);
+        }
+
+        public void RemoverSessaoDoUsuario(string nomeSessao)
+        {
+            _httpContext.HttpContext.Session.Remove(nomeSessao);
         }
     }
 }

@@ -11,17 +11,21 @@ namespace PjA2Tp3.Controllers
 {
     public class UsuariosController : Controller
     {
-        private readonly TpContext _context;
+        private readonly TpContext _context = new TpContext();
 
-        public UsuariosController(TpContext context)
+        public UsuariosController()
         {
-            _context = context;
+          
         }
 
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
               return View(await _context.Usuarios.ToListAsync());
+        }
+        public IActionResult Registrar()
+        {
+            return View();
         }
 
         // GET: Usuarios/Details/5
@@ -57,6 +61,22 @@ namespace PjA2Tp3.Controllers
         {
             if (ModelState.IsValid)
             {
+                _context.Add(usuario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(usuario);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Registrar([Bind("Id,IsActive,Nome,Email,Password,Perfil,Cpf,Sexo")] Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                usuario.IsActive= true;
+                usuario.Perfil = Perfil.Usuario;
+                
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

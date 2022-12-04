@@ -4,10 +4,12 @@ namespace PjA2Tp3.Helper
 {
     public interface ISessao
     {
-        void CriarSessaoDoUsuario(Usuario usuario);
+        void CriarSessaoDoUsuario(Usuario usuario, string nomeSessao);
 
-        void RemoverSessaoDoUsuario();
+        void CriarSessaoNomeUsuario(string nome, string nomeSessao);
 
-        Usuario BuscarSessaoDoUsuario();
+        void RemoverSessaoDoUsuario(string nomeSessao);
+
+        Usuario BuscarSessaoDoUsuario(string nomeSessao);
     }
 }

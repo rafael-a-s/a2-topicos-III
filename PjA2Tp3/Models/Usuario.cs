@@ -26,10 +26,10 @@ namespace PjA2Tp3.Models
         public string Email { get; set; } = null!;
         [StringLength(20)]
         public string Password { get; set; } = null!;
-        public int? Perfil { get; set; }
+        public Perfil? Perfil { get; set; }
         [StringLength(11)]
         public string? Cpf { get; set; }
-        public int? Sexo { get; set; }
+        public Sexo? Sexo { get; set; }
 
         [InverseProperty("Pessoa")]
         public virtual ICollection<Endereco> Enderecos { get; set; }
