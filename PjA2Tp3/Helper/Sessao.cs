@@ -13,7 +13,7 @@ namespace PjA2Tp3.Helper
             _httpContext = httpContext;   
         }
 
-        public Usuario BuscarSessaoDoUsuario(string nomeSessao)
+        public Usuario BuscarSessao(string nomeSessao)
         {
             string sessaoUsu = _httpContext.HttpContext.Session.GetString(nomeSessao);
 
@@ -22,18 +22,24 @@ namespace PjA2Tp3.Helper
             return JsonConvert.DeserializeObject<Usuario>(sessaoUsu); 
         }
 
+        public void CriarSessaoDaEmpresa(Empresa empresa, string nomeSessao)
+        {
+            string valor = JsonConvert.SerializeObject(empresa);
+            _httpContext.HttpContext.Session.SetString(nomeSessao, valor);
+        }
+
         public void CriarSessaoDoUsuario(Usuario usuario, string nomeSessao)
         {
             string valor = JsonConvert.SerializeObject(usuario);    
             _httpContext.HttpContext.Session.SetString(nomeSessao,valor);
         }
 
-        public void CriarSessaoNomeUsuario(string nome, string nomeSessao)
+        public void CriarSessaoParaNome(string nome, string nomeSessao)
         {
             _httpContext.HttpContext.Session.SetString(nomeSessao, nome);
         }
 
-        public void RemoverSessaoDoUsuario(string nomeSessao)
+        public void RemoverSessao(string nomeSessao)
         {
             _httpContext.HttpContext.Session.Remove(nomeSessao);
         }

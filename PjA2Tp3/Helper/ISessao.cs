@@ -6,10 +6,12 @@ namespace PjA2Tp3.Helper
     {
         void CriarSessaoDoUsuario(Usuario usuario, string nomeSessao);
 
-        void CriarSessaoNomeUsuario(string nome, string nomeSessao);
+        void CriarSessaoDaEmpresa(Empresa empresa, string nomeSessao);
 
-        void RemoverSessaoDoUsuario(string nomeSessao);
+        void CriarSessaoParaNome(string nome, string nomeSessao);
 
-        Usuario BuscarSessaoDoUsuario(string nomeSessao);
+        void RemoverSessao(string nomeSessao);
+
+        Usuario BuscarSessao(string nomeSessao);
     }
 }

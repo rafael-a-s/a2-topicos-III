@@ -74,12 +74,11 @@ namespace PjA2Tp3.Controllers
         {
             if (ModelState.IsValid)
             {
-                usuario.IsActive= true;
+                usuario.IsActive = true;
                 usuario.Perfil = Perfil.Usuario;
-                
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Login","UsuarioLogin");
             }
             return View(usuario);
         }

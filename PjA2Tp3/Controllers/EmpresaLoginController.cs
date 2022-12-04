@@ -1,23 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PjA2Tp3.Helper;
 using PjA2Tp3.Models;
-using System.Security.Cryptography.X509Certificates;
 
 namespace PjA2Tp3.Controllers
 {
-    public class UsuarioLoginController : Controller
+    public class EmpresaLoginController : Controller
     {
         TpContext db = new TpContext();
         private readonly ISessao _sessao;
 
 
-        public UsuarioLoginController(ISessao sessao)
+        public EmpresaLoginController(ISessao sessao)
         {
             _sessao = sessao;
         }
+
         public IActionResult Login()
         {
-            if (_sessao.BuscarSessao("usuLogado") != null) return RedirectToAction("Index", "Home");
+            if (_sessao.BuscarSessao("empLogado") != null) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -26,23 +26,20 @@ namespace PjA2Tp3.Controllers
         [ActionName("Valida")]
         public IActionResult Valida(string email, string password)
         {
-            var user = db.Usuarios.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
-         
-            if (user != null)
+            var empresa = db.Empresas.Where(e => e.Email == email && e.Password == password).FirstOrDefault();
+
+            if (empresa != null)
             {
-                _sessao.CriarSessaoDoUsuario(user,"usuLogado");
-                _sessao.CriarSessaoParaNome(user.Nome,"usuNome");
+                _sessao.CriarSessaoDaEmpresa(empresa, "usuLogado");
+                _sessao.CriarSessaoParaNome(empresa.NomeFantasia, "usuNome");
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                
+
                 ViewBag.msg = "Usuário ou senha inválidos";
                 return View();
             }
         }
-
-       
     }
 }
-

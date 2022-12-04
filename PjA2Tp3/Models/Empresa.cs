@@ -32,6 +32,10 @@ namespace PjA2Tp3.Models
         [StringLength(14)]
         public string? Cnpj { get; set; }
 
+        [Column("Pefil")]
+        [Display(Name = "Perfil Sistêmico")]
+        public Perfil? Perfil { get; set; } 
+
         [ForeignKey("EnderecoId")]
         [InverseProperty("Empresas")]
         public virtual Endereco? Endereco { get; set; }

@@ -22,8 +22,8 @@ namespace PjA2Tp3.Controllers
 
         public IActionResult Logout()
         {
-            _sessao.RemoverSessaoDoUsuario("usuLogado");
-            _sessao.RemoverSessaoDoUsuario("usuNome");
+            _sessao.RemoverSessao("usuLogado");
+            _sessao.RemoverSessao("usuNome");
 
             return RedirectToAction("Index", "Home");
         }
