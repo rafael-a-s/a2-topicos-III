@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
     {
+      "Id": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\LoginUsuario.css",
+      "PackagePath": "staticwebassets\\css\\LoginUsuario.css"
+    },
+    {
       "Id": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
