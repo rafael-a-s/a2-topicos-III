@@ -105,8 +105,7 @@ namespace PjA2Tp3.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+           
                 try
                 {
                     _context.Update(usuario);
@@ -124,8 +123,8 @@ namespace PjA2Tp3.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            return View(usuario);
+            
+            
         }
 
         // GET: Usuarios/Delete/5

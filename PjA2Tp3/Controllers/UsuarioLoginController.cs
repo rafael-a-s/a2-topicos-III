@@ -33,13 +33,15 @@ namespace PjA2Tp3.Controllers
             {
                 _sessao.CriarSessaoDoUsuario(user,"usuLogado");
                 _sessao.CriarSessaoParaNome(user.Nome,"usuNome");
+                _sessao.CriarSessaoPermissao( user.Perfil ,"permissao");
+
                 return RedirectToAction("Index", "Home");
             }
             else
             {
                 
                 ViewBag.msg = "Usuário ou senha inválidos";
-                return View();
+                return View(nameof(Index));
             }
         }
 

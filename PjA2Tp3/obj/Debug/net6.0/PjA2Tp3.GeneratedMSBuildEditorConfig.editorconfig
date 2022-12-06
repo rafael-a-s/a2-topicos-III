@@ -48,6 +48,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcUmVnaXN0cmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/EnderecoEmpresas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29FbXByZXNhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/EnderecoEmpresas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29FbXByZXNhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/EnderecoEmpresas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29FbXByZXNhc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/EnderecoEmpresas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29FbXByZXNhc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/EnderecoEmpresas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29FbXByZXNhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,6 +106,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Tags/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/TelefoneEmpresas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVFbXByZXNhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/TelefoneEmpresas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVFbXByZXNhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/TelefoneEmpresas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVFbXByZXNhc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/TelefoneEmpresas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVFbXByZXNhc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/TelefoneEmpresas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVFbXByZXNhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/UsuarioLogin/Login.cshtml]

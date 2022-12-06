@@ -3,22 +3,23 @@
     ViewData["Title"] = "Home Page";
     
 }
-
-<div class="text-center row row-cols-2">
+<div class="container">
+    <div class="row row-cols-2">
     
     
-    @foreach (var item in Model)
-    {
-        <div class="card shadow-lg">
-          <h5 class="card-header">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-          <div class="card-body">
-                <h5 class="card-title">
-                    <a asp-controller="Empresas" asp-action="Profile" asp-route-id="@item.Empresas.Id">@Html.DisplayFor(modelItem => item.Empresas.NomeFantasia)</a>
-                </h5>
-                <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Vagas" asp-action="Details" asp-route-id="@item.Id">Ver detalhes</a>
-          </div>
-        </div>
-    }
+        @foreach (var item in Model)
+        {
+            <div class="card shadow-lg m-4" style="max-width: 25%; ">
+              <h5 class="card-header" style="background: black; color:white;">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+              <div class="card-body">
+                    <h5 class="card-title">
+                        <a class="link-dark text-dark" asp-controller="Empresas" asp-action="Profile" asp-route-id="@item.Empresas.Id">@Html.DisplayFor(modelItem => item.Empresas.NomeFantasia)</a>
+                    </h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Vagas" asp-action="Details" asp-route-id="@item.Id">Ver detalhes</a>
+              </div>
+            </div>
+        }
    
+    </div>
 </div>

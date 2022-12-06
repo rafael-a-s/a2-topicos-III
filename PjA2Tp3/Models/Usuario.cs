@@ -31,7 +31,7 @@ namespace PjA2Tp3.Models
         [MinLength(3, ErrorMessage ="Informa no mínimo 3 caracteres")]
         public string Password { get; set; }
 
-        public Perfil? Perfil { get; set; }
+        public Perfil Perfil { get; set; }
 
         [Required(ErrorMessage = "Informe o CPF")]
         [MaxLength(14, ErrorMessage = "Informe no máximo 14 caracteres")]
@@ -46,6 +46,6 @@ namespace PjA2Tp3.Models
         public IList<Endereco>? Enderecos { get; set; }
 
         
-        public virtual Telefone Telefone { get; set; }
+        public virtual IList<Telefone> Telefones { get; set; }
     }
 }

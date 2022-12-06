@@ -38,6 +38,11 @@ namespace PjA2Tp3.Controllers
 
             var empresa = await _context.Empresas
                 .FirstOrDefaultAsync(m => m.Id == id);
+            IList<TelefoneEmpresa> fones =  _context.TelefoneEmpresas.Where(m => m.EmpresaId == id).ToList();
+            foreach (var item in fones)
+            {
+                empresa.Telefones.Add(item);    
+            }
             if (empresa == null)
             {
                 return NotFound();

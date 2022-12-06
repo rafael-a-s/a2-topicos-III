@@ -39,6 +39,12 @@ namespace PjA2Tp3.Helper
             _httpContext.HttpContext.Session.SetString(nomeSessao, nome);
         }
 
+        public void CriarSessaoPermissao(Perfil perfil, string nomeSessao)
+        {
+            string value = JsonConvert.SerializeObject(perfil);  
+            _httpContext.HttpContext.Session.SetString(nomeSessao, value);
+        }
+
         public void RemoverSessao(string nomeSessao)
         {
             _httpContext.HttpContext.Session.Remove(nomeSessao);

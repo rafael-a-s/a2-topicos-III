@@ -42,7 +42,9 @@ namespace PjA2Tp3.Models
         [MinLength(0)]
         public string Cnpj { get; set; }
 
-        public IList<Telefone> Telefones { get; set; }
+        public IList<TelefoneEmpresa> Telefones { get; set; }
+
+        public IList<EnderecoEmpresa> Enderecos { get; set; }
         
         public virtual IList<Vaga> Vagas { get; set; }
     }
