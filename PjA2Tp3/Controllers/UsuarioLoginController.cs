@@ -7,13 +7,14 @@ namespace PjA2Tp3.Controllers
 {
     public class UsuarioLoginController : Controller
     {
-        TpContext db = new TpContext();
+        private readonly TpContext _db;
         private readonly ISessao _sessao;
 
 
-        public UsuarioLoginController(ISessao sessao)
+        public UsuarioLoginController(ISessao sessao, TpContext db)
         {
             _sessao = sessao;
+            _db = db;
         }
         public IActionResult Login()
         {
@@ -26,7 +27,7 @@ namespace PjA2Tp3.Controllers
         [ActionName("Valida")]
         public IActionResult Valida(string email, string password)
         {
-            var user = db.Usuarios.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
+            var user = _db.Usuarios.Where(u => u.Email == email && u.Password == password && u.IsActive == true).FirstOrDefault();
          
             if (user != null)
             {

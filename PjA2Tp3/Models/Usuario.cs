@@ -7,33 +7,45 @@ using Microsoft.EntityFrameworkCore;
 namespace PjA2Tp3.Models
 {
     [Table("Usuario")]
-    [Index("Cpf", Name = "IX_Cpf", IsUnique = true)]
-    [Index("Email", Name = "IX_Email", IsUnique = true)]
     public partial class Usuario
     {
-        public Usuario()
-        {
-            Enderecos = new HashSet<Endereco>();
-            TelefoneUsuarioEmpresas = new HashSet<TelefoneUsuarioEmpresa>();
-        }
-
+        
         [Key]
         public int Id { get; set; }
-        public bool IsActive { get; set; }
-        [StringLength(255)]
-        public string Nome { get; set; } = null!;
-        [StringLength(255)]
-        public string Email { get; set; } = null!;
-        [StringLength(20)]
-        public string Password { get; set; } = null!;
+
+        public bool IsActive { get; set; } = true;
+
+        [Required(ErrorMessage = "Informe o nome")]
+        [MaxLength(50, ErrorMessage = "Informe no máximo 50 caracteres")]
+        [MinLength(0)]
+        public string Nome { get; set; }
+
+        [Required(ErrorMessage = "Informe o email")]
+        [MaxLength(255, ErrorMessage = "Informe no máximo 255 caracteres")]
+        [MinLength(0)]
+        [EmailAddress(ErrorMessage = "Informe um email válido")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Informe sua senha")]
+        [MaxLength(50, ErrorMessage = "Informe no máximo 50 caracteres")]
+        [MinLength(3, ErrorMessage ="Informa no mínimo 3 caracteres")]
+        public string Password { get; set; }
+
         public Perfil? Perfil { get; set; }
-        [StringLength(11)]
+
+        [Required(ErrorMessage = "Informe o CPF")]
+        [MaxLength(14, ErrorMessage = "Informe no máximo 14 caracteres")]
+        [MinLength(0)]
         public string? Cpf { get; set; }
+
+        [Required(ErrorMessage = "Informe a data de nascimento")]
+        public DateTime DataNascimento { get; set; }
+
         public Sexo? Sexo { get; set; }
 
-        [InverseProperty("Pessoa")]
-        public virtual ICollection<Endereco> Enderecos { get; set; }
-        [InverseProperty("Usuario")]
-        public virtual ICollection<TelefoneUsuarioEmpresa> TelefoneUsuarioEmpresas { get; set; }
+        public IList<Endereco>? Enderecos { get; set; }
+
+        
+        public virtual Telefone Telefone { get; set; }
     }
 }

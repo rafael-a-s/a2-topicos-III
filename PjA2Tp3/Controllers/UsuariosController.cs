@@ -11,11 +11,11 @@ namespace PjA2Tp3.Controllers
 {
     public class UsuariosController : Controller
     {
-        private readonly TpContext _context = new TpContext();
+        private readonly TpContext _context;
 
-        public UsuariosController()
+        public UsuariosController(TpContext context)
         {
-          
+            _context = context;
         }
 
         // GET: Usuarios
@@ -27,7 +27,6 @@ namespace PjA2Tp3.Controllers
         {
             return View();
         }
-
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -57,7 +56,7 @@ namespace PjA2Tp3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IsActive,Nome,Email,Password,Perfil,Cpf,Sexo")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,IsActive,Nome,Email,Password,Perfil,Cpf,DataNascimento,Sexo")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -67,19 +66,14 @@ namespace PjA2Tp3.Controllers
             }
             return View(usuario);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registrar([Bind("Id,IsActive,Nome,Email,Password,Perfil,Cpf,Sexo")] Usuario usuario)
+        public async Task<IActionResult> Registrar([Bind("Id,IsActive,Nome,Email,Password,Perfil,Cpf,DataNascimento,Sexo")] Usuario usuario)
         {
-            if (ModelState.IsValid)
-            {
-                usuario.IsActive = true;
                 usuario.Perfil = Perfil.Usuario;
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Login","UsuarioLogin");
-            }
+         
             return View(usuario);
         }
 
@@ -104,7 +98,7 @@ namespace PjA2Tp3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,IsActive,Nome,Email,Password,Perfil,Cpf,Sexo")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,IsActive,Nome,Email,Password,Perfil,Cpf,DataNascimento,Sexo")] Usuario usuario)
         {
             if (id != usuario.Id)
             {

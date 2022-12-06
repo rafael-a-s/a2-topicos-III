@@ -6,13 +6,14 @@ namespace PjA2Tp3.Controllers
 {
     public class EmpresaLoginController : Controller
     {
-        TpContext db = new TpContext();
+        private readonly TpContext _db;
         private readonly ISessao _sessao;
 
 
-        public EmpresaLoginController(ISessao sessao)
+        public EmpresaLoginController(ISessao sessao, TpContext db)
         {
             _sessao = sessao;
+            _db= db;
         }
 
         public IActionResult Login()
@@ -27,7 +28,7 @@ namespace PjA2Tp3.Controllers
         public IActionResult Valida(string email, string password)
         {
             Console.WriteLine("Entrou");
-            var empresa = db.Empresas.Where(e => e.Email == email && e.Password == password).FirstOrDefault();
+            var empresa = _db.Empresas.Where(e => e.Email == email && e.Password == password && e.IsActive == true).FirstOrDefault();
 
             if (empresa != null)
             {

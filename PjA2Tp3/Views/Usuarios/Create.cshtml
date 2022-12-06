@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Perfil" class="control-label"></label>
-                <select asp-for="Perfil" class="form-control" asp-items="Html.GetEnumSelectList(typeof(Perfil))"></select>
+                <input asp-for="Perfil" class="form-control" />
                 <span asp-validation-for="Perfil" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,8 +43,13 @@
                 <span asp-validation-for="Cpf" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Sexo" class="control-label"></label>
-                <select asp-for="Sexo" class="form-control" asp-items="Html.GetEnumSelectList(typeof(Sexo))"></select>
+                <input asp-for="Sexo" class="form-control" />
                 <span asp-validation-for="Sexo" class="text-danger"></span>
             </div>
             <div class="form-group">

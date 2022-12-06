@@ -13,17 +13,19 @@ namespace PjA2Tp3.Controllers
 {
     public class VagasController : Controller
     {
-        private readonly TpContext _context = new TpContext();
+        private readonly TpContext _context;
         private readonly ISessao _sessao;
-        public VagasController(ISessao sessao)
+
+        public VagasController(TpContext context, ISessao sessao)
         {
-          _sessao = sessao; 
+            _context = context;
+            _sessao = sessao;
         }
 
         // GET: Vagas
         public async Task<IActionResult> Index()
         {
-            var tpContext = _context.Vagas.Include(v => v.PessoaJuridica);
+            var tpContext = _context.Vagas.Include(v => v.Empresas);
             return View(await tpContext.ToListAsync());
         }
 
@@ -36,7 +38,7 @@ namespace PjA2Tp3.Controllers
             }
 
             var vaga = await _context.Vagas
-                .Include(v => v.PessoaJuridica)
+                .Include(v => v.Empresas)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vaga == null)
             {
@@ -49,7 +51,7 @@ namespace PjA2Tp3.Controllers
         // GET: Vagas/Create
         public IActionResult Create()
         {
-            ViewData["PessoaJuridicaId"] = new SelectList(_context.Empresas, "Id", "Id");
+            ViewData["EmpresasId"] = new SelectList(_context.Empresas, "Id", "Cnpj");
             ViewData["Tag"] = new SelectList(_context.Tags, "Id", "Label");
             return View();
         }
@@ -59,36 +61,33 @@ namespace PjA2Tp3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Remuneracao,Curtidas,Turno,Modalidade,PessoaJuridicaId")] Vaga vaga)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Remuneracao,Curtidas,Turno,Modalidade,EmpresasId")] Vaga vaga)
         {
-            Console.WriteLine("Entrou");
-            StringValues listTags = Request.Form["VagasTags"];
+            StringValues TagId = Request.Form["Tags"];
+
             var empresa = _sessao.BuscarSessao("empLogado");
-            vaga.PessoaJuridicaId = empresa.Id;
-            vaga.Curtidas = 0;
-            if (ModelState.IsValid)
+            vaga.EmpresasId = empresa.Id;
+            vaga.Empresas = _context.Empresas.FirstOrDefault(e => e.Id == empresa.Id);
+
+            foreach (var item in TagId)
             {
-                _context.Add(vaga);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-
-                foreach (var idTag in listTags)
-                {
-                    int id = int.Parse(idTag);
-
-                    Tag t = _context.Tags.FirstOrDefault(t => t.Id == id);
-                    VagasTag vt = new VagasTag();
-                    vt.TagId = t.Id;
-                    vt.VagaId = vaga.Id;
-                    
-                    _context.Add(vt);
-                    await _context.SaveChangesAsync();
-                }
-
+                int id = int.Parse(item);
+                Tag t = new Tag();
+                t = _context.Tags.FirstOrDefault(t => t.Id == id);
+                VagaTag vt = new VagaTag();
+                vt.TagId = t.Id;
+                vt.Tag = t;
+                vt.Vaga = vaga;
+                vaga.Tags = new List<VagaTag>();
+                vaga.Tags.Add(vt);  
             }
-           
-            ViewData["PessoaJuridicaId"] = new SelectList(_context.Empresas, "Id", "Id", vaga.PessoaJuridicaId);
-            return View(vaga);
+
+            _context.Add(vaga);
+            await _context.SaveChangesAsync();
+          
+            ViewData["EmpresasId"] = new SelectList(_context.Empresas, "Id", "Cnpj", vaga.EmpresasId);
+            ViewData["Tag"] = new SelectList(_context.Tags, "Id", "Label");
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Vagas/Edit/5
@@ -104,7 +103,7 @@ namespace PjA2Tp3.Controllers
             {
                 return NotFound();
             }
-            ViewData["PessoaJuridicaId"] = new SelectList(_context.Empresas, "Id", "Id", vaga.PessoaJuridicaId);
+            ViewData["EmpresasId"] = new SelectList(_context.Empresas, "Id", "Cnpj", vaga.EmpresasId);
             return View(vaga);
         }
 
@@ -113,7 +112,7 @@ namespace PjA2Tp3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descricao,Remuneracao,Curtidas,Turno,Modalidade,PessoaJuridicaId")] Vaga vaga)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descricao,Remuneracao,Curtidas,Turno,Modalidade,EmpresasId")] Vaga vaga)
         {
             if (id != vaga.Id)
             {
@@ -140,7 +139,7 @@ namespace PjA2Tp3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PessoaJuridicaId"] = new SelectList(_context.Empresas, "Id", "Id", vaga.PessoaJuridicaId);
+            ViewData["EmpresasId"] = new SelectList(_context.Empresas, "Id", "Cnpj", vaga.EmpresasId);
             return View(vaga);
         }
 
@@ -153,7 +152,7 @@ namespace PjA2Tp3.Controllers
             }
 
             var vaga = await _context.Vagas
-                .Include(v => v.PessoaJuridica)
+                .Include(v => v.Empresas)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vaga == null)
             {

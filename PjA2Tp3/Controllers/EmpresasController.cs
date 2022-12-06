@@ -11,19 +11,40 @@ namespace PjA2Tp3.Controllers
 {
     public class EmpresasController : Controller
     {
-        private readonly TpContext _context = new TpContext();
+        private readonly TpContext _context;
 
-        public EmpresasController()
+        public EmpresasController(TpContext context)
         {
+            _context = context;
         }
 
         // GET: Empresas
         public async Task<IActionResult> Index()
         {
-            var tpContext = _context.Empresas.Include(e => e.Endereco);
-            return View(await tpContext.ToListAsync());
+              return View(await _context.Empresas.ToListAsync());
         }
 
+        public IActionResult Registrar()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Profile(int? id)
+        {
+            if (id == null || _context.Empresas == null)
+            {
+                return NotFound();
+            }
+
+            var empresa = await _context.Empresas
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (empresa == null)
+            {
+                return NotFound();
+            }
+
+            return View(empresa);
+        }
         // GET: Empresas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -33,7 +54,6 @@ namespace PjA2Tp3.Controllers
             }
 
             var empresa = await _context.Empresas
-                .Include(e => e.Endereco)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (empresa == null)
             {
@@ -46,13 +66,6 @@ namespace PjA2Tp3.Controllers
         // GET: Empresas/Create
         public IActionResult Create()
         {
-            ViewData["EnderecoId"] = new SelectList(_context.Enderecos, "Id", "Id");
-            return View();
-        }
-
-        public IActionResult Registrar()
-        {
-            
             return View();
         }
 
@@ -61,7 +74,7 @@ namespace PjA2Tp3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IsActive,NomeFantasia,Email,Password,InscricaoEstadual,EnderecoId,Cnpj")] Empresa empresa)
+        public async Task<IActionResult> Create([Bind("Id,IsActive,NomeFantasia,Email,Password,InscricaoEstadual,Cnpj")] Empresa empresa)
         {
             if (ModelState.IsValid)
             {
@@ -69,25 +82,20 @@ namespace PjA2Tp3.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EnderecoId"] = new SelectList(_context.Enderecos, "Id", "Id", empresa.EnderecoId);
             return View(empresa);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Registrar([Bind("Id,IsActive,NomeFantasia,Email,Password,InscricaoEstadual,EnderecoId,Cnpj")] Empresa empresa)
         {
-            if (ModelState.IsValid)
-            {
+            
                 empresa.IsActive = true;
                 _context.Add(empresa);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["EnderecoId"] = new SelectList(_context.Enderecos, "Id", "Id", empresa.EnderecoId);
-            return View(empresa);
+                return RedirectToAction("Login", "EmpresaLogin");
+            
+                
         }
-
         // GET: Empresas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -101,7 +109,6 @@ namespace PjA2Tp3.Controllers
             {
                 return NotFound();
             }
-            ViewData["EnderecoId"] = new SelectList(_context.Enderecos, "Id", "Id", empresa.EnderecoId);
             return View(empresa);
         }
 
@@ -110,7 +117,7 @@ namespace PjA2Tp3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,IsActive,NomeFantasia,Email,Password,InscricaoEstadual,EnderecoId,Cnpj")] Empresa empresa)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,IsActive,NomeFantasia,Email,Password,InscricaoEstadual,Cnpj")] Empresa empresa)
         {
             if (id != empresa.Id)
             {
@@ -137,7 +144,6 @@ namespace PjA2Tp3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EnderecoId"] = new SelectList(_context.Enderecos, "Id", "Id", empresa.EnderecoId);
             return View(empresa);
         }
 
@@ -150,7 +156,6 @@ namespace PjA2Tp3.Controllers
             }
 
             var empresa = await _context.Empresas
-                .Include(e => e.Endereco)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (empresa == null)
             {

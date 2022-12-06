@@ -1,10 +1,19 @@
+using Microsoft.EntityFrameworkCore;
 using PjA2Tp3.Helper;
+using PjA2Tp3.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<TpContext>(options =>
+{
+    options.UseSqlServer("Data Source=DESKTOP-9O4PDO6\\SQLEXPRESS;Initial Catalog=TpIII;Integrated Security=True;Encrypt=false");
+});
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSingleton<ISessao, Sessao>();
 

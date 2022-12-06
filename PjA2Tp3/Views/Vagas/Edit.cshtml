@@ -35,18 +35,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="Turno" class="control-label"></label>
-                <input asp-for="Turno" class="form-control" />
+                <select asp-for="Turno" class="form-control"></select>
                 <span asp-validation-for="Turno" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Modalidade" class="control-label"></label>
-                <input asp-for="Modalidade" class="form-control" />
+                <select asp-for="Modalidade" class="form-control"></select>
                 <span asp-validation-for="Modalidade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PessoaJuridicaId" class="control-label"></label>
-                <select asp-for="PessoaJuridicaId" class="form-control" asp-items="ViewBag.PessoaJuridicaId"></select>
-                <span asp-validation-for="PessoaJuridicaId" class="text-danger"></span>
+                <label asp-for="EmpresasId" class="control-label"></label>
+                <select asp-for="EmpresasId" class="form-control" asp-items="ViewBag.EmpresasId"></select>
+                <span asp-validation-for="EmpresasId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -6,19 +6,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PjA2Tp3.Models
 {
-    [Table("Telefone")]
-    public partial class Telefone
+    [Table("TelefoneEmpresa")]
+    public partial class TelefoneEmpresa
     {
         [Key]
         public int Id { get; set; }
         [StringLength(2)]
         public string Ddd { get; set; } = null!;
         [StringLength(9)]
-        public string Numero { get; set; }
+        public string? Numero { get; set; }
 
-        public int UsuarioId { get; set; }  
-
-        public Usuario Usuario { get; set;}
+        public int EmpresaId { get; set; }
+        public Empresa Empresa { get; set; }
 
     }
 }

@@ -27,10 +27,10 @@
                 <input asp-for="Remuneracao" class="form-control" />
                 <span asp-validation-for="Remuneracao" class="text-danger"></span>
             </div>
-            
+           
             <div class="form-group">
                 <label asp-for="Turno" class="control-label"></label>
-                 <select asp-for="Turno" class="form-control" asp-items="Html.GetEnumSelectList(typeof(Turno))"></select>
+                <select asp-for="Turno" class="form-control" asp-items="Html.GetEnumSelectList(typeof(Turno))"></select>
                 <span asp-validation-for="Turno" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -39,9 +39,8 @@
                 <span asp-validation-for="Modalidade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="VagasTags" class="control-label"></label>
-                <select asp-for="VagasTags" class="form-control" asp-items="ViewBag.Tag"></select>
-                <span asp-validation-for="VagasTags" class="text-danger"></span>
+                <label asp-for="Tags" class="control-label"></label>
+                <select asp-for="Tags" class="form-control" asp-items="ViewBag.Tag"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

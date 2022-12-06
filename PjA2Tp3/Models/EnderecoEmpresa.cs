@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PjA2Tp3.Models
 {
-    [Table("Endereco")]
-    public partial class Endereco
+    [Table("EnderecoEmpresa")]
+    public partial class EnderecoEmpresa
     {
 
         [Key]
@@ -28,9 +28,9 @@ namespace PjA2Tp3.Models
         [StringLength(50)]
         public string? Estado { get; set; }
 
-        public int UsuarioId { get; set; }
+        public int EmpresaId { get; set; }
 
-        public virtual Usuario Usuario { get; set; }
+        public virtual Empresa Empresa { get; set; }
        
     }
 }

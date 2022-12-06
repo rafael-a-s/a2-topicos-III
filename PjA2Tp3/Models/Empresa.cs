@@ -7,36 +7,43 @@ using Microsoft.EntityFrameworkCore;
 namespace PjA2Tp3.Models
 {
     [Table("Empresa")]
-    [Index("Email", Name = "IX_Empresa", IsUnique = true)]
-    [Index("Cnpj", Name = "IX_Empresa_1", IsUnique = true)]
     public partial class Empresa
     {
-        public Empresa()
-        {
-            TelefoneUsuarioEmpresas = new HashSet<TelefoneUsuarioEmpresa>();
-            Vagas = new HashSet<Vaga>();
-        }
+      
 
         [Key]
         public int Id { get; set; }
+
         public bool IsActive { get; set; }
-        [StringLength(100)]
-        public string NomeFantasia { get; set; } = null!;
-        [StringLength(100)]
-        public string Email { get; set; } = null!;
-        [StringLength(50)]
-        public string Password { get; set; } = null!;
-        [StringLength(50)]
-        public string InscricaoEstadual { get; set; } = null!;
-        public int? EnderecoId { get; set; }
-        [StringLength(14)]
-        public string? Cnpj { get; set; }
-        [ForeignKey("EnderecoId")]
-        [InverseProperty("Empresas")]
-        public virtual Endereco? Endereco { get; set; }
-        [InverseProperty("Empresa")]
-        public virtual ICollection<TelefoneUsuarioEmpresa> TelefoneUsuarioEmpresas { get; set; }
-        [InverseProperty("PessoaJuridica")]
-        public virtual ICollection<Vaga> Vagas { get; set; }
+
+        [Required(ErrorMessage = "Informe o nome")]
+        [MaxLength(100, ErrorMessage = "Informe no máximo 100 caracteres")]
+        [MinLength(0)]
+        public string NomeFantasia { get; set; }
+
+        [Required(ErrorMessage = "Informe o email")]
+        [MaxLength(255, ErrorMessage = "Informe no máximo 255 caracteres")]
+        [MinLength(0)]
+        [EmailAddress(ErrorMessage = "Informe um email válido")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Informe sua senha")]
+        [MaxLength(50, ErrorMessage = "Informe no máximo 50 caracteres")]
+        [MinLength(3, ErrorMessage = "Informa no mínimo 3 caracteres")]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Informe o IE")]
+        [MaxLength(14, ErrorMessage = "Informe no máximo 14 caracteres")]
+        [MinLength(0)]
+        public string InscricaoEstadual { get; set; }
+
+        [Required(ErrorMessage = "Informe o CNPJ")]
+        [MaxLength(14, ErrorMessage = "Informe no máximo 14 caracteres")]
+        [MinLength(0)]
+        public string Cnpj { get; set; }
+
+        public IList<Telefone> Telefones { get; set; }
+        
+        public virtual IList<Vaga> Vagas { get; set; }
     }
 }

@@ -4,19 +4,21 @@
     
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-  
-   @foreach (var item in Model)
+<div class="text-center row row-cols-2">
+    
+    
+    @foreach (var item in Model)
     {
-        <div class="card">
+        <div class="card shadow-lg">
           <h5 class="card-header">@Html.DisplayFor(modelItem => item.Titulo)</h5>
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">
+                    <a asp-controller="Empresas" asp-action="Profile" asp-route-id="@item.Empresas.Id">@Html.DisplayFor(modelItem => item.Empresas.NomeFantasia)</a>
+                </h5>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Vagas" asp-action="Details" asp-route-id="@item.Id">Ver detalhes</a>
           </div>
         </div>
     }
+   
 </div>
