@@ -2,59 +2,38 @@
 
 @{
     ViewData["Title"] = "Details";
+    var empresa = Context.Session.GetString("empLogado");
+    var permissao = Context.Session.GetString("permissao");
 }
+<head>
+    <link rel="stylesheet" href="~/css/Details.css" asp-append-version="true" />
+</head>
 
-<h1>Details</h1>
 
-<div>
-    <h4>Vaga</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Remuneracao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Remuneracao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Curtidas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Curtidas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Turno)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Turno)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modalidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Modalidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Empresas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Empresas.Cnpj)
-        </dd>
-    </dl>
+<div class="align-items-center"  style="width: 100%; height:auto; display: flex; align-items: center; justify-content: center;">
+
+    <div class="cards">
+       
+        <div class="card card3">
+            <div class="container">
+                <img src="~/css/singapore.jpg" alt="New York">
+            </div>
+            <div class="details">
+                <h3> @Html.DisplayFor(model => model.Titulo)</h3>
+                <p>@Html.DisplayFor(model => model.Descricao)</p>
+                <p>Salário R$ @Html.DisplayFor(model => model.Remuneracao)</p>
+                <p>Vaga no periodo @Html.DisplayFor(model => model.Turno) e <strong> @Html.DisplayFor(model => model.Modalidade)</strong></p>
+                <h3>Fornecida por  <a class="link-light" asp-controller="Empresas" asp-action="Profile" asp-route-id="@Model.Empresas.Id">@Html.DisplayFor(model => model.Empresas.NomeFantasia)</a></h3>
+            </div>
+        </div>
+        
+    </div>
+
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+ @if (empresa != null || permissao == "0")
+ {
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+ }

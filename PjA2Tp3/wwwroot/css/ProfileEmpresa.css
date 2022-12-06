@@ -32,3 +32,6 @@
 .toppad {
     margin-top: 20px;
 }
+.panel-info > .panel-heading {
+    background: black;
+}

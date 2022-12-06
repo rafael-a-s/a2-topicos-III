@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PjA2Tp3.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\Details.css",
+      "PackagePath": "staticwebassets\\css\\Details.css"
+    },
+    {
       "Id": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\Login.css",
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
@@ -19,6 +23,10 @@
     {
       "Id": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\Registar.css",
       "PackagePath": "staticwebassets\\css\\Registar.css"
+    },
+    {
+      "Id": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\singapore.jpg",
+      "PackagePath": "staticwebassets\\css\\singapore.jpg"
     },
     {
       "Id": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\site.css",

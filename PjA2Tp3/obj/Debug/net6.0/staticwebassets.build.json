@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xzQdIS6rrV9go4CuJ6losCl3TjCx/LIeyQIItuNvKok=",
+  "Hash": "r35kd1kiecXnSIXKBa3rKZbbGhuN7urN7jVTOgRLukk=",
   "Source": "PjA2Tp3",
   "BasePath": "_content/PjA2Tp3",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PjA2Tp3.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\Details.css",
+      "SourceId": "PjA2Tp3",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\",
+      "BasePath": "_content/PjA2Tp3",
+      "RelativePath": "css/Details.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Details.css"
     },
     {
       "Identity": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\Login.css",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Registar.css"
+    },
+    {
+      "Identity": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\singapore.jpg",
+      "SourceId": "PjA2Tp3",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\",
+      "BasePath": "_content/PjA2Tp3",
+      "RelativePath": "css/singapore.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\singapore.jpg"
     },
     {
       "Identity": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\site.css",
