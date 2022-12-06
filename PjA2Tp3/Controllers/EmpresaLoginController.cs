@@ -26,11 +26,12 @@ namespace PjA2Tp3.Controllers
         [ActionName("Valida")]
         public IActionResult Valida(string email, string password)
         {
+            Console.WriteLine("Entrou");
             var empresa = db.Empresas.Where(e => e.Email == email && e.Password == password).FirstOrDefault();
 
             if (empresa != null)
             {
-                _sessao.CriarSessaoDaEmpresa(empresa, "usuLogado");
+                _sessao.CriarSessaoDaEmpresa(empresa, "empLogado");
                 _sessao.CriarSessaoParaNome(empresa.NomeFantasia, "usuNome");
                 return RedirectToAction("Index", "Home");
             }

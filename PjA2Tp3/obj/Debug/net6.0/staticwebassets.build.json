@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "peMuCaaCq0hKCm2ckeXb/b0PTMFzB6CJjlcWMYLqk7Y=",
+  "Hash": "0SxJXoeFoAWdrrxtA3pp2v7pLIBJYZ/nCKYXz1g8mpY=",
   "Source": "PjA2Tp3",
   "BasePath": "_content/PjA2Tp3",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\LoginUsuario.css"
+    },
+    {
+      "Identity": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\Registar.css",
+      "SourceId": "PjA2Tp3",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\",
+      "BasePath": "_content/PjA2Tp3",
+      "RelativePath": "css/Registar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Registar.css"
     },
     {
       "Identity": "C:\\Users\\Rafael Aguiar Silva\\source\\repos\\PjA2Tp3\\PjA2Tp3\\wwwroot\\css\\site.css",

@@ -1,9 +1,12 @@
 ﻿@model PjA2Tp3.Models.Empresa
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Registrar";
 }
-
+<head>
+    <link rel="stylesheet" href="~/css/Registar.css" asp-append-version="true" />
+</head>
+<div class="card-local" >
 <h1>Create</h1>
 
 <h4>Empresa</h4>
@@ -33,10 +36,7 @@
                 <input asp-for="InscricaoEstadual" class="form-control" />
                 <span asp-validation-for="InscricaoEstadual" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="EnderecoId" class="control-label"></label>
-                <select asp-for="EnderecoId" class ="form-control" asp-items="ViewBag.EnderecoId"></select>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="Cnpj" class="control-label"></label>
                 <input asp-for="Cnpj" class="form-control" />
@@ -45,6 +45,7 @@
             <div class="form-group">
                 <input type="submit" value="Registrar" class="btn btn-primary" />
             </div>
+           
         </form>
     </div>
 </div>
@@ -52,7 +53,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

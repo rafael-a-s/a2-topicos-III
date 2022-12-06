@@ -24,8 +24,8 @@ namespace PjA2Tp3.Models
         public decimal Remuneracao { get; set; }
         public int? Curtidas { get; set; }
         public int Turno { get; set; }
-        public int Modalidade { get; set; }
-        public int PessoaJuridicaId { get; set; }
+        public Modalidade Modalidade { get; set; }
+        public int? PessoaJuridicaId { get; set; }
 
         [ForeignKey("PessoaJuridicaId")]
         [InverseProperty("Vagas")]

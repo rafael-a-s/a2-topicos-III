@@ -11,11 +11,11 @@ namespace PjA2Tp3.Controllers
 {
     public class TagsController : Controller
     {
-        private readonly TpContext _context;
+        private readonly TpContext _context = new TpContext();
 
-        public TagsController(TpContext context)
+        public TagsController()
         {
-            _context = context;
+           
         }
 
         // GET: Tags
