@@ -34,6 +34,8 @@ namespace PjA2Tp3.Controllers
             {
                 _sessao.CriarSessaoDaEmpresa(empresa, "empLogado");
                 _sessao.CriarSessaoParaNome(empresa.NomeFantasia, "usuNome");
+               
+
                 return RedirectToAction("Index", "Home");
             }
             else

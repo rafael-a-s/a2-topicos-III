@@ -10,6 +10,8 @@ namespace PjA2Tp3.Helper
 
         void CriarSessaoParaNome(string nome, string nomeSessao);
 
+        void CriarSessaoId(int id, string nomeSessao);
+
         void CriarSessaoPermissao(Perfil perfil, string nomeSessao);
 
         void RemoverSessao(string nomeSessao);

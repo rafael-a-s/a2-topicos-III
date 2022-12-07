@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using PjA2Tp3.Helper;
 using PjA2Tp3.Models;
 
 namespace PjA2Tp3.Controllers
@@ -12,10 +13,12 @@ namespace PjA2Tp3.Controllers
     public class EnderecoEmpresasController : Controller
     {
         private readonly TpContext _context;
+        private readonly ISessao _sessao;
 
-        public EnderecoEmpresasController(TpContext context)
+        public EnderecoEmpresasController(TpContext context, ISessao sessao)
         {
             _context = context;
+            _sessao = sessao;
         }
 
         // GET: EnderecoEmpresas
@@ -58,14 +61,14 @@ namespace PjA2Tp3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Bairro,Logradouro,TipoLogradouro,Cidade,Estado,EmpresaId")] EnderecoEmpresa enderecoEmpresa)
         {
-            if (ModelState.IsValid)
-            {
+                var aux = _sessao.BuscarSessao("empLogado");
+                Empresa emp = _context.Empresas.FirstOrDefault(e => e.Id == aux.Id);
+                enderecoEmpresa.Empresa = emp;
+                enderecoEmpresa.EmpresaId = aux.Id;
+
                 _context.Add(enderecoEmpresa);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmpresaId"] = new SelectList(_context.Empresas, "Id", "Cnpj", enderecoEmpresa.EmpresaId);
-            return View(enderecoEmpresa);
+                return RedirectToAction("Profile", "Empresas", emp);
         }
 
         // GET: EnderecoEmpresas/Edit/5

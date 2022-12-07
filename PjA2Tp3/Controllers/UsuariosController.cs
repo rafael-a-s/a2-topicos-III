@@ -27,6 +27,26 @@ namespace PjA2Tp3.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Profile(int? id)
+        {
+            if (id == null || _context.Empresas == null)
+            {
+                return NotFound();
+            }
+
+            var users = await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.Id == id);
+            IList<Telefone> fones = _context.Telefones.Where(m => m.UsuarioId == id).ToList();
+            IList<Endereco> ends = _context.Enderecos.Where(e => e.UsuarioId == id).ToList();
+
+
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            return View(users);
+        }
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -12,10 +12,6 @@ namespace PjA2Tp3.Controllers
 
         private readonly TpContext _db;
 
-       
-
-       
-
         public HomeController(ILogger<HomeController> logger, TpContext db)
         {
           _logger= logger;
@@ -24,11 +20,9 @@ namespace PjA2Tp3.Controllers
 
         public async Task<IActionResult> Index()
         {
-            
+           
             return View(await _db.Vagas.Include(e => e.Empresas).ToListAsync());
         }
-        
-
 
         public IActionResult Privacy()
         {

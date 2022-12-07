@@ -24,6 +24,7 @@ namespace PjA2Tp3.Controllers
         {
             _sessao.RemoverSessao("usuLogado");
             _sessao.RemoverSessao("usuNome");
+            _sessao.RemoverSessao("empLogado");
 
             return RedirectToAction("Index", "Home");
         }

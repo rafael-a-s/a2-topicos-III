@@ -68,6 +68,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29FbXByZXNhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Enderecoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29lc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Enderecoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29lc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Enderecoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29lc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Enderecoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29lc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Enderecoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29lc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -128,6 +148,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVFbXByZXNhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Telefones/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Telefones/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Telefones/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Telefones/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Telefones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVsZWZvbmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/UsuarioLogin/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0xvZ2luXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -150,6 +190,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Usuarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Usuarios/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Rafael Aguiar Silva/source/repos/PjA2Tp3/PjA2Tp3/Views/Usuarios/Registrar.cshtml]

@@ -1,7 +1,10 @@
-﻿@{
+﻿@using Newtonsoft.Json;
+@{
     var user = Context.Session.GetString("usuLogado");
     var empresa = Context.Session.GetString("empLogado");
     var nomeUser = Context.Session.GetString("usuNome");
+    var permissao = Context.Session.GetString("permissao");
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -27,39 +30,54 @@
             <li class="nav-item">
               <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
             </li>
+            @if (permissao != null && permissao.Equals("0"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link " asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
+                </li>
+            }
+            @if (empresa != null || user != null && permissao.Equals("0"))
+            {
             <li class="nav-item">
-              <a class="nav-link " asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
+                <a class="nav-link " asp-area="" asp-controller="Vagas" asp-action="Create">Vagas</a>
+            </li>
+            }
+            
+            <li class="nav-item">
+                        <a class="nav-link " href="#">Contato</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " asp-area="" asp-controller="Vagas" asp-action="Create">Vagas</a>
-            </li>
-            <li class="nav-item">
-                        <a class="nav-link " href="#">Contact</a>
+                <a class="nav-link " href="#">Sobre</a>
             </li>
 
-                    @if (nomeUser != null)
-                    {
-                        <div class="dropdown">
-                            <a class="btn btn-dark dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                Olá, @nomeUser
-                            </a>
+            @if (nomeUser != null)
+            {
+                <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        Olá, @nomeUser
+                    </a>
 
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Minhas curtidas</a></li>
-                                <li> <a class="nav-link text-black " asp-area="" asp-controller="Login" asp-action="Logout">Sair</a></li>
-                            </ul>
-                        </div>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Login" asp-action="Index">Login</a>
-                        </li>
-                    }
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                        @if (empresa != null)
+                        {
+                            Empresa e = JsonConvert.DeserializeObject<Empresa>(empresa);
+                            <li> <a class="nav-link text-black " asp-controller="Empresas" asp-action="Profile" asp-route-id="@e.Id">Perfil</a></li>
+                        }else{
+                            Usuario u = JsonConvert.DeserializeObject<Usuario>(user);
+                            <li> <a class="nav-link text-black " asp-controller="Usuarios" asp-action="Profile" asp-route-id="@u.Id">Perfil</a></li>
+                        }
+                        <li><a class="nav-link text-black " href="#">Minhas curtidas</a></li>
+                    <li> <a class="nav-link text-black " asp-area="" asp-controller="Login" asp-action="Logout">Sair</a></li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link " asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+                </li>
+            }
 
           </ul>
         </div>

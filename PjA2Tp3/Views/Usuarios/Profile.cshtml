@@ -1,4 +1,4 @@
-﻿@model PjA2Tp3.Models.Empresa
+﻿@model PjA2Tp3.Models.Usuario
 @using Newtonsoft.Json;
 @{
     ViewData["Title"] = "Details";
@@ -44,15 +44,20 @@
                                 <tbody>
                                     <tr>
                                         <td>Nome:</td>
-                                        <td>@Html.DisplayFor(model => model.NomeFantasia)</td>
+                                        <td>@Html.DisplayFor(model => model.Nome)</td>
                                     </tr>
                                     <tr>
-                                        <td>CNPJ:</td>
-                                        <td>@Html.DisplayFor(model => model.Cnpj)</td>
+                                        <td>CPF:</td>
+                                        <td>@Html.DisplayFor(model => model.Cpf)</td>
                                     </tr>
+                                    <tr>
+                                        <td>Sexo:</td>
+                                        <td>@Html.DisplayFor(model => model.Sexo)</td>
+                                    </tr>
+
                                     <tr>
                                         <td>Inscrição Estadual</td>
-                                        <td>@Html.DisplayFor(model => model.InscricaoEstadual)</td>
+                                        <td>@Html.DisplayFor(model => model.DataNascimento)</td>
                                     </tr>
 
                                     <tr>
@@ -68,15 +73,15 @@
                                                 {
                                                     <p>(@Html.DisplayFor(modelItem => item.Ddd))  - @Html.DisplayFor(modelItem => item.Numero)</p>
                                                 }
-                                                @if (empresa != null)
+                                                @if (user != null)
                                                     {
-                                                       <a asp-action="Create" asp-controller="TelefoneEmpresas">Adicionar contato</a> 
+                                                       <a asp-action="Create" asp-controller="Telefones">Adicionar contato</a> 
                                                     }
                                             }else{
                                                 <strong>Sem contatos registrados !</strong>
-                                                 @if (empresa != null && Model.Telefones == null )
+                                                 @if (user != null && Model.Telefones == null )
                                                 {
-                                                    <a asp-action="Create" asp-controller="EnderecoEmpresas">Adicionar endereço</a>
+                                                    <a asp-action="Create" asp-controller="Telefones">Adicionar endereço</a>
                                                 }
                                             }
                                         </td>
@@ -92,17 +97,17 @@
                                                     @Html.DisplayFor(modelItem => item.Estado)
                                             </p>
                                             }
-                                             @if (empresa != null)
+                                             @if (user != null)
                                             {
-                                                <a asp-action="Create" asp-controller="EnderecoEmpresas">Adicionar endereço</a>
+                                                <a asp-action="Create" asp-controller="Enderecoes">Adicionar endereço</a>
                                             }
                                         }
                                         else
                                         {
                                             <strong>Sem endereços registrados !</strong>
-                                            @if (empresa != null && Model.Enderecos == null )
+                                            @if (user != null && Model.Enderecos == null)
                                             {
-                                                <a asp-action="Create" asp-controller="EnderecoEmpresas">Adicionar endereço</a>
+                                                <a asp-action="Create" asp-controller="Enderecoes">Adicionar endereço</a>
                                             }
                                            
                                         }
@@ -115,15 +120,14 @@
                         </div>
                     </div>
                 </div>
-                @if (empresa != null || permissao == "0")
+                @if (user != null || permissao == "0")
                 {
-                    Empresa emp = JsonConvert.DeserializeObject<Empresa>(empresa);
-                    @if (Model.Id == emp.Id)
+                    Usuario usu = JsonConvert.DeserializeObject<Usuario>(user);
+                    @if (Model.Id == usu.Id)
                     {
                         <div class="panel-footer">
                         <span class="pull-right">
                             <a asp-action="Edit" asp-route-id="@Model.Id" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-
                         </span>
                     </div>
                     }

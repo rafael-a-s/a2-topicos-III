@@ -34,6 +34,12 @@ namespace PjA2Tp3.Helper
             _httpContext.HttpContext.Session.SetString(nomeSessao,valor);
         }
 
+        public void CriarSessaoId(int id, string nomeSessao)
+        {
+            string valor = JsonConvert.SerializeObject(id);
+            _httpContext.HttpContext.Session.SetString( valor , nomeSessao);
+        }
+
         public void CriarSessaoParaNome(string nome, string nomeSessao)
         {
             _httpContext.HttpContext.Session.SetString(nomeSessao, nome);
