@@ -42,7 +42,7 @@ namespace PjA2Tp3.Controllers
             {
 
                 ViewBag.msg = "Usuário ou senha inválidos";
-                return View();
+                return RedirectToAction("Login", "EmpresaLogin");
             }
         }
     }

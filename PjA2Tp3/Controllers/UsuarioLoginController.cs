@@ -41,7 +41,7 @@ namespace PjA2Tp3.Controllers
             {
                 
                 ViewBag.msg = "Usuário ou senha inválidos";
-                return View(nameof(Index));
+                return RedirectToAction("Login", "UsuarioLogin");
             }
         }
 

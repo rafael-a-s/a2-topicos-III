@@ -16,10 +16,7 @@
                         <a class="link-dark text-dark" asp-controller="Empresas" asp-action="Profile" asp-route-id="@item.Empresas.Id">@Html.DisplayFor(modelItem => item.Empresas.NomeFantasia)</a>
                     </h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
-                    @foreach (var i in item.Tags)
-                    {
-                        <strong>@i.Tag.Label</strong>
-                    }
+                   
                     <a class="nav-link text-dark" asp-area="" asp-controller="Vagas" asp-action="Details" asp-route-id="@item.Id">Ver detalhes</a>
               </div>
             </div>

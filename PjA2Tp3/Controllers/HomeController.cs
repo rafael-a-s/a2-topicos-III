@@ -20,8 +20,9 @@ namespace PjA2Tp3.Controllers
 
         public async Task<IActionResult> Index()
         {
-           
-            return View(await _db.Vagas.Include(e => e.Empresas).ToListAsync());
+            IList<Vaga> vagas = await _db.Vagas.Include(e => e.Empresas).ToListAsync();
+            
+            return View(vagas);
         }
 
         public IActionResult Privacy()
