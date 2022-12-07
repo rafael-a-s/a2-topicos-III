@@ -35,6 +35,9 @@
                 <li class="nav-item">
                     <a class="nav-link " asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
                 </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Tags" asp-action="Index">Tags</a>
+                        </li>
             }
             @if (empresa != null || user != null && permissao.Equals("0"))
             {
